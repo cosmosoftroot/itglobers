@@ -30,22 +30,23 @@ function App() {
   const[phone, setPhone] = useState('')
   const[age, setAge] = useState('')
   const[modalI, setModalI] = useState(null)
+  const[sidenavI, setSidenavI] = useState(null)
 
 
   let sidenav = null;
   let modal = null;
 
   useEffect(()=>{
-    M.Sidenav.init(sidenav);
-    let instance = M.Modal.init(modal);
-    setModalI(instance)
+    let instanceSidenav = M.Sidenav.init(sidenav);
+    let instanceModal = M.Modal.init(modal);
+    setModalI(instanceModal)
+    setSidenavI(instanceSidenav)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
-  function handleClick(name){
+  function handleClick(name, sidenav){
     setCompany(name)
-   
-  }
+  }  
  
   function sendForm(e){
     e.preventDefault()
@@ -86,7 +87,7 @@ function App() {
         </ul>
       </nav>
     </header>
-    <ul ref={(menu => sidenav = menu)} className="sidenav" id="mobile-demo">
+    <ul ref={(menu => sidenav = menu)} className="sidenav sidenav-close" id="mobile-demo">
       {menu.map((item, key)=>(
         <li key={key}>
           <a href="#" onClick={()=>handleClick(item.name)}>
