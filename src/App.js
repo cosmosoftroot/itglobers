@@ -35,10 +35,9 @@ function App() {
   let modal = null;
 
   useEffect(()=>{
-    let instanceSidenav = M.Sidenav.init(sidenav);
+    M.Sidenav.init(sidenav);
     let instanceModal = M.Modal.init(modal);
-    setModalI(instanceModal)
-    setSidenavI(instanceSidenav)
+    setModalI(instanceModal)   
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
