@@ -30,9 +30,7 @@ function App() {
   const[phone, setPhone] = useState('')
   const[age, setAge] = useState('')
   const[modalI, setModalI] = useState(null)
-  const[sidenavI, setSidenavI] = useState(null)
-
-
+ 
   let sidenav = null;
   let modal = null;
 
