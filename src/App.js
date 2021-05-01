@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useState, useEffect} from 'react'
 import logo from './assets/logo.png'
 import M from 'materialize-css'
@@ -38,6 +39,7 @@ function App() {
     M.Sidenav.init(sidenav);
     let instance = M.Modal.init(modal);
     setModalI(instance)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
   function handleClick(name){
