@@ -63,6 +63,7 @@ function App() {
     setPhone('')
     setEmail('')
     setAge('')
+    setCompany(null)
   }
   
   return (
@@ -99,51 +100,55 @@ function App() {
           <div className="row title-register">
             <div className="col s12">
               <h3 className="center-align">Hola Bienvenido!</h3>
-            </div>
-            {company!==null && (
+            </div>           
+          </div>
+        </section>
+        {company===null ? (
+          <div className="col s12">
+            <h5 className="center-align">Selecciona una aerolínea para continuar</h5>
+          </div>
+          ):(
+          <form onSubmit={sendForm}>
             <div className="col s12">
               <h5 className="center-align">Sabemos que quieres viajar por {company}</h5>
             </div>
-            )}
-          </div>
-        </section>
-        <form onSubmit={sendForm}>
-          <div className="row section">
-            <div className="input-field col s12 m6 ">
-              <input id='name' value={name} onChange={(e)=>setName(e.target.value)} type="text" className="validate" required/>
-              <label htmlFor='name'>Nombre Completo</label>
-              <span className="helper-text" data-error="Campo requerido" />
-            </div>    
-            <div className="input-field col s12 m6 ">
-              <input id='email' value={email} onChange={(e)=>setEmail(e.target.value)} type="email" className="validate" required/>
-              <label htmlFor='email'>Email</label>
-              <span className="helper-text" data-error="Ingrese un email válido" />
-            </div>           
-          </div>
-          <div className="row section">
-            <div className="input-field col s12 m6 ">
-              <input id='phone' value={phone} onChange={(e)=>setPhone(e.target.value)} type="text" className="validate" required/>
-              <label htmlFor='phone'>Celular</label>
-              <span className="helper-text" data-error="Campo requerido" />
-            </div>    
-            <div className="input-field col s12 m6 ">
-              <input id='age' value={age} onChange={(e)=>setAge(e.target.value)} type="number" className="validate" required min={18} max={100} />
-              <label htmlFor='age'>Edad</label>
-              <span className="helper-text" data-error="La edad debe estar entre los 18 y 100 años" />
-            </div>           
-          </div>
-          <div className="section">
-            <div className="row">
-              <div className="col s12">
-                <div className="center-align">
-                  <button type='submit' className="btn waves-effect waves-light">Enviar
-                      <i className="material-icons right">send</i>
-                  </button>
+            <div className="row section">
+              <div className="input-field col s12 m6 ">
+                <input id='name' value={name} onChange={(e)=>setName(e.target.value)} type="text" className="validate" required/>
+                <label htmlFor='name'>Nombre Completo</label>
+                <span className="helper-text" data-error="Campo requerido" />
+              </div>    
+              <div className="input-field col s12 m6 ">
+                <input id='email' value={email} onChange={(e)=>setEmail(e.target.value)} type="email" className="validate" required/>
+                <label htmlFor='email'>Email</label>
+                <span className="helper-text" data-error="Ingrese un email válido" />
+              </div>           
+            </div>
+            <div className="row section">
+              <div className="input-field col s12 m6 ">
+                <input id='phone' value={phone} onChange={(e)=>setPhone(e.target.value)} type="text" className="validate" required/>
+                <label htmlFor='phone'>Celular</label>
+                <span className="helper-text" data-error="Campo requerido" />
+              </div>    
+              <div className="input-field col s12 m6 ">
+                <input id='age' value={age} onChange={(e)=>setAge(e.target.value)} type="number" className="validate" required min={18} max={100} />
+                <label htmlFor='age'>Edad</label>
+                <span className="helper-text" data-error="La edad debe estar entre los 18 y 100 años" />
+              </div>           
+            </div>
+            <div className="section">
+              <div className="row">
+                <div className="col s12">
+                  <div className="center-align">
+                    <button type='submit' className="btn waves-effect waves-light">Enviar
+                        <i className="material-icons right">send</i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+          )}
       </div>
     </main>
     <div id="modal1" className="modal" ref={(modalBox => modal = modalBox)}>
@@ -153,13 +158,12 @@ function App() {
       <div className="modal-content">
         <h5 className='center'>Tu información fue enviada con éxito<br/> Estaremos en contacto contigo</h5>
       </div>
-    </div>
-   
+    </div>   
     <footer className="page-footer container purple  lighten-1 valign-wrapper">
       <div className="row">
         <div className="col s12">
           <h6 className='center'>
-            Desarrollado por Iván Darío Sánchez Jiménez
+            Desarrollado por <a href='https://www.linkedin.com/in/cosmosoftroot/' rel="noopener noreferrer" target="_blank" style={{textDecoration: 'none', color: 'white', cursor: 'pointer'}}>Iván Darío Sánchez Jiménez</a>
           </h6>
         </div>
       </div>                    
